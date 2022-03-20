@@ -1,6 +1,7 @@
-import { transform } from "@babel/core";
-import React from "react";
+import React from "react"
 import { StyleSheet, View, Text, Pressable } from 'react-native'
+
+import Theme from '../../styles/theme'
 
 const TodoItem = ({ index, todo, section, finishItem}) => {
   /**
@@ -21,7 +22,7 @@ const TodoItem = ({ index, todo, section, finishItem}) => {
         </Text>
       </View>
       <Pressable style={styles.iconView} onPress={() => finishItem(section.isRepeat, todo)}>
-        <View style={[styles.iconCheck, todo.isFinish ? styles.finish : '']} />
+        <View style={[Theme.style.iconCheck, todo.isFinish ? Theme.style.isChecked : '']} />
       </Pressable>
     </View>
   )
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     paddingTop: 8,
     paddingBottom: 8,
-    color: '#222'
+    color: Theme.COLOR_BLACK
   },
   border: {
     borderTopWidth: 1,
@@ -49,21 +50,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  iconCheck: {
-    width: 7,
-    height: 12,
-    borderLeftWidth: 2, 
-    borderTopWidth: 2,
-    borderColor: '#E3E3E3',
-    transform: [{ rotate: '225deg' }]
-  },
-  finish: {
-    borderColor: '#503AEE',
-  },
   title: {
     flex: 2,
     alignItems: 'center',
-    color: '#222',
+    color: Theme.COLOR_BLACK,
     fontSize: 14,
   },
   desc: {

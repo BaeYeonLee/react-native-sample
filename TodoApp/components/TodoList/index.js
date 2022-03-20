@@ -1,5 +1,6 @@
-import React from "react";
+import React from "react"
 import { StyleSheet, View, SectionList } from 'react-native'
+
 import TodoSection from './TodoSection'
 import TodoItem from './TodoItem'
 

@@ -1,5 +1,7 @@
-import React from "react";
+import React from "react"
 import { StyleSheet, View, Text } from 'react-native'
+
+import Theme from '../../styles/theme'
 
 const TodoSection = ({ title }) => {
   /**
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
     borderColor: '#E3E3E3',
     padding: 16,
     alignItems: 'center',
-    color: '#222',
+    color: Theme.COLOR_BLACK,
     fontWeight: 'bold',
   }
 })

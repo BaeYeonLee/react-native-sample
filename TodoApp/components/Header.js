@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, Text, Pressable, Modal } from 'react-native'
 
-const Header = ({addItem }) => {
-  const [flagModal, toggleModal] = useState(false);
+import Theme from '../styles/theme'
+
+import AddItemDialog from './AddItemDialog'
+
+const Header = ({ addItem }) => {
+  const [flagModal, toggleModal] = useState(false)
 
   return (
     <View style={styles.header}>
@@ -12,12 +16,14 @@ const Header = ({addItem }) => {
       </Pressable>
       {/* Modal */}
       <Modal
+        transparent={true}
         visible={flagModal}
-        onRequestClose={() => toggleModal(false)}>
-          {/* TODO :: addItem form */}
-          <Text>
-            Modal
-          </Text>
+        onRequestClose={() => toggleModal(false)}
+        >
+          <AddItemDialog
+            closeDialog={toggleModal}
+            addItem={addItem}
+            />
       </Modal>
     </View>
   )
@@ -32,13 +38,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
   },
   title: {
-    color: '#222',
+    color: Theme.COLOR_BLACK,
     fontSize: 18,
     fontWeight: 'bold'
   },
   addText: {
     color: '#503AEE',
-  }
+  },
 })
 
 export default Header
